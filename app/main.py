@@ -101,6 +101,7 @@ def static(path):
 
 @bottle.post('/start')
 def start():
+	targetPoint = None
     data = bottle.request.json
     game_id = data.get('game_id')
     board_width = data.get('width')
@@ -144,6 +145,8 @@ def move():
 	print("decided to move:" + moveTo)
 
 	
+	moveTo = direction(head,targetPoint)
+
 	
 	print()
 	return {
