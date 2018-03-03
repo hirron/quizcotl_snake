@@ -47,10 +47,11 @@ def getPointList(data):
 	
 def getBestValue(grid, head):
 	if(head[0] == 0):
-	
+		continue
 	if(head[1] == 0):
-	
+		continue
 	if(head[0] == 0 and head[1] == 0):
+		continue
 	
 	
 	
