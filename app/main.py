@@ -99,8 +99,11 @@ def move():
 	
 	print("decided to move:" + moveTo)
 
+	
+	
+	print()
 	return {
-		'move': str(moveTo),
+		'move': 'west',
 		'taunt': 'The sun darkens!'
     }
 
