@@ -11,13 +11,13 @@ def direction(from_cell, to_cell):
 	
 	
 	if dx > 0:
-		return 'east'
+		return 'right'
 	elif dx < 0:
-		return 'west'
+		return 'left'
 	elif dy <  0:
-		return 'north'
+		return 'up'
 	elif dy > 0:
-		return 'south'
+		return 'down'
 
 def distance(p, q):
     dx = abs(p[0] - q[0])
@@ -103,7 +103,7 @@ def move():
 	
 	print()
 	return {
-		'move': 'west',
+		'move': moveTo,
 		'taunt': 'The sun darkens!'
     }
 
