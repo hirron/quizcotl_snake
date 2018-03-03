@@ -1,6 +1,41 @@
 import bottle
 import os
 import random
+import math
+import copy
+
+def direction(from_cell, to_cell):
+    dx = to_cell[0] - from_cell[0]
+    dy = to_cell[1] - from_cell[1]
+
+    if dx == 1:
+        return 'east'
+    elif dx == -1:
+        return 'west'
+    elif dy == -1:
+        return 'north'
+    elif dy == 1:
+        return 'south'
+
+def distance(p, q):
+    dx = abs(p[0] - q[0])
+    dy = abs(p[1] - q[1])
+    return dx + dy;
+
+def closest(items, start):
+    closest_item = None
+    closest_distance = 10000
+
+    # TODO: use builtin min for speed up
+    for item in items:
+        item_distance = distance(start, item)
+        if item_distance < closest_distance:
+            closest_item = item
+            closest_distance = item_distance
+
+    return closest_item
+
+	
 
 
 
@@ -43,10 +78,10 @@ def move():
     
     directions = ['up', 'down', 'left', 'right']
     direction = random.choice(directions)
-    print direction
+    print(direction)
     return {
         'move': direction,
-        'taunt': 'battlesnake-python!'
+        'taunt': 'The sun darkens!'
     }
 
 
