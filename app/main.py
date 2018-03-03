@@ -96,12 +96,9 @@ def move():
 		print("Food Location")
 		print ((foodList[0].get('x'),foodList[0].get('y')))
 		print("decided to move:" + moveTo)
-	else:
-		print("no food")
-		moveTo = 'north'
-	
+
 	return {
-		'move': moveTo,
+		'move': str(moveTo),
 		'taunt': 'The sun darkens!'
     }
 
