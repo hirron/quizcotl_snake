@@ -6,18 +6,18 @@ import copy
 
 def direction(from_cell, to_cell):
 	print("Moving from "+str(from_cell) + "to " + str(to_cell))
-    dx = to_cell[0] - from_cell[0]
-    dy = to_cell[1] - from_cell[1]
+	dx = to_cell[0] - from_cell[0]
+	dy = to_cell[1] - from_cell[1]
 	
 	
-    if dx > 0:
-        return 'east'
-    elif dx < 0:
-        return 'west'
-    elif dy <  0:
-        return 'north'
-    elif dy > 0:
-        return 'south'
+	if dx > 0:
+		return 'east'
+	elif dx < 0:
+		return 'west'
+	elif dy <  0:
+		return 'north'
+	elif dy > 0:
+		return 'south'
 
 def distance(p, q):
     dx = abs(p[0] - q[0])
@@ -90,7 +90,7 @@ def move():
     
    
 	if len(foodList) > 0:
-		moveTo=direction((youList[0].get('x'),youList[0].get('y')),(foodList[0].get('x'),foodList[0].get('y')))
+		moveTo = direction((youList[0].get('x'),youList[0].get('y')),(foodList[0].get('x'),foodList[0].get('y')))
 		print("My Location")
 		print((youList[0].get('x'),youList[0].get('y')))
 		print("Food Location")
