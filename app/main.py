@@ -73,7 +73,7 @@ def move():
 	directions = ['up', 'down', 'left', 'right']	
 	data = bottle.request.json
 	foodList = data['food'].get('data')
-	SnakeList = data['snakes'].get('data')
+	snakeList = data['snakes'].get('data')
 	youList = data['you'].get('data')
 	
 	print(youList)
