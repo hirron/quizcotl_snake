@@ -89,7 +89,9 @@ def move():
    
 	if len(foodList) > 0:
 		moveTo=direction((youList[0].get('x'),youList[0].get('y')),(foodList[0].get('x'),foodList[0].get('y')))
+		print("decided to move:" + moveTo)
 	else:
+		print("no food")
 		moveTo = 'north'
 	
 	return {
