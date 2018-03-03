@@ -5,9 +5,11 @@ import math
 import copy
 
 def direction(from_cell, to_cell):
+	print("Moving from "+str(from_cell) + "to " + str(to_cell))
     dx = to_cell[0] - from_cell[0]
     dy = to_cell[1] - from_cell[1]
-
+	
+	
     if dx > 0:
         return 'east'
     elif dx < 0:
