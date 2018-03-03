@@ -74,11 +74,11 @@ def move():
 	data = bottle.request.json
 	foodList = data['food'].get('data')
 	snakeList = data['snakes'].get('data')
-	youList = data['you'].get('data')
+	youList = data['you'].get('body').get('data')
 	
-	print(youList)
-	print(snakeList)
-	print(foodListList)
+	print(youList + '\n\n')
+	print(snakeList +'\n\n')
+	print(foodList +'\n\n')
 
     # TODO: Do things with data
     
