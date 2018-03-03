@@ -37,6 +37,15 @@ def closest(items, start):
 
     return closest_item
 
+def getPointList(data):
+	pointList = []
+	for point in data:
+		newPoint(point.get('x'), point.get('y'))
+		pointList.push(newPoint)
+	
+	return pointList
+	
+
 
 
 @bottle.route('/')
@@ -69,29 +78,26 @@ def start():
         'head_url': head_url
     }
 
-
+targetPoint = None
 @bottle.post('/move')
 def move():
 	directions = ['up', 'down', 'left', 'right']	
 	data = bottle.request.json
-	foodList = data['food'].get('data')
+	foodList = getPointList(data['food'].get('data'))
 	snakeList = data['snakes'].get('data')
 	youList = data['you'].get('body').get('data')
 	
-	#print("my location")
-	#print(youList)
-	#print('other snake location')
-	#print(snakeList)
-	#print('food location')
-	#print(foodList)
-	print('\n')
+	head = (youList[0].get('x'),youList[0].get('y'))
 
-    # TODO: Do things with data
-    
-	moveTo = None
+	if targetPoint not in foodList or targetPoint == None:
+		targetPoint = closest(foodList, head)
+	
    
 	if len(foodList) > 0:
-		moveTo = direction((youList[0].get('x'),youList[0].get('y')),(foodList[0].get('x'),foodList[0].get('y')))
+	
+	
+	
+		moveTo = direction(head,(foodList[0].get('x'),foodList[0].get('y')))
 		print("My Location")
 		print((youList[0].get('x'),youList[0].get('y')))
 		print("Food Location")
