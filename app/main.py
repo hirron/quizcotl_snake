@@ -41,7 +41,7 @@ def getPointList(data):
 	pointList = []
 	for point in data:
 		newPoint = (point.get('x'), point.get('y'))
-		pointList.push(newPoint)
+		pointList.append(newPoint)
 	
 	return pointList
 	
