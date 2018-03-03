@@ -79,9 +79,9 @@ def move():
 	print(youList)
 	print('\n')
 	print(snakeList)
-		print('\n')
+	print('\n')
 	print(foodList)
-		print('\n')
+	print('\n')
 
     # TODO: Do things with data
     
