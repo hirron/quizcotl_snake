@@ -1,4 +1,3 @@
-from AStar import *
 import bottle
 import copy
 import math
