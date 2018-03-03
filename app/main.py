@@ -4,6 +4,11 @@ import random
 import math
 import copy
 
+#Global Variables
+NumTries = 3
+############
+
+
 def direction(from_cell, to_cell):
 	print("Moving from "+str(from_cell) + "to " + str(to_cell))
 	dx = to_cell[0] - from_cell[0]
@@ -86,8 +91,15 @@ def getBestValue(grid, head):
 		return(head[0],head[1]+1)
 
 	
-	
-	
+def updateGrid(Grid):
+	n = 0
+	while n < NumTries:
+		for row in grid:
+			for column in row:
+				Grid[row][column] = Grid[row][column] + (1/2)*(Grid[row-1][column]+Grid[row+1][column]+Grid[row][column+1]+Grid[row][column-1])	
+		n = n+1
+	return Grid
+
 
 @bottle.route('/')
 def static():
