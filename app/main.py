@@ -45,13 +45,46 @@ def getPointList(data):
 	
 	return pointList
 	
+def maxIndex(arr):
+		max = -1000
+		x = 0
+		retInd = 0
+		
+		for val in arr:
+			if val > max:
+				max = val
+				retInd = x
+		x = x+1
+		
+		return retInd
+				
+	
 def getBestValue(grid, head):
+	vals =[grid[head[0]-1][head[1]], grid[head[0]+1][head[1]], grid[head[0]][head[1]-1], grid[head[0]][head[1]+1]]
+	
+	if(head[0] == (len(grid)-1)):
+		vals[1] = -100000
+		
+	if(head[1] == (len(grid)-1)):
+		vals[3] = -100000
+		
 	if(head[0] == 0):
-		continue
+		vals[0] = -100000
+	
 	if(head[1] == 0):
-		continue
-	if(head[0] == 0 and head[1] == 0):
-		continue
+		vals[2] = -100000
+
+	highestIndex = maxIndex(vals)
+
+	if highestIndex == 0:
+		return (head[0]-1,head[1])
+	if highestIndex == 1:
+		return (head[0]+1, head[1])
+	if highestIndex == 2:
+		return(head[0],head[1]-1)
+	if highestIndex == 3:
+		return(head[0],head[1]+1)
+
 	
 	
 	
