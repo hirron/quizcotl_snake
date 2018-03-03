@@ -76,9 +76,12 @@ def move():
 	snakeList = data['snakes'].get('data')
 	youList = data['you'].get('body').get('data')
 	
-	print(youList + '\n\n')
-	print(snakeList +'\n\n')
-	print(foodList +'\n\n')
+	print(youList)
+	print('\n')
+	print(snakeList)
+		print('\n')
+	print(foodList)
+		print('\n')
 
     # TODO: Do things with data
     
