@@ -45,8 +45,15 @@ def getPointList(data):
 	
 	return pointList
 	
-
-
+def getBestValue(grid, head):
+	if(head[0] == 0):
+	
+	if(head[1] == 0):
+	
+	if(head[0] == 0 and head[1] == 0):
+	
+	
+	
 
 @bottle.route('/')
 def static():
@@ -89,19 +96,16 @@ def move():
 	
 	head = (youList[0].get('x'),youList[0].get('y'))
 
-	if targetPoint not in foodList or targetPoint == None:
+	if targetPoint == None:
+		targetPoint = closest(foodList, head)
+	
+	if targetPoint not in foodList:
 		targetPoint = closest(foodList, head)
 	
    
 	if len(foodList) > 0:
-	
-	
-	
-		moveTo = direction(head,(foodList[0].get('x'),foodList[0].get('y')))
-		print("My Location")
-		print((youList[0].get('x'),youList[0].get('y')))
-		print("Food Location")
-		print ((foodList[0].get('x'),foodList[0].get('y')))
+		moveTo = direction(head,targetPoint)
+
 	
 	print("decided to move:" + moveTo)
 
