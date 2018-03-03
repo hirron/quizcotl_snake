@@ -40,7 +40,7 @@ def closest(items, start):
 def getPointList(data):
 	pointList = []
 	for point in data:
-		newPoint(point.get('x'), point.get('y'))
+		newPoint = (point.get('x'), point.get('y'))
 		pointList.push(newPoint)
 	
 	return pointList
