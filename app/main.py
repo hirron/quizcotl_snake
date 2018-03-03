@@ -76,22 +76,24 @@ def move():
 	snakeList = data['snakes'].get('data')
 	youList = data['you'].get('body').get('data')
 	
+	print("my location")
 	print(youList)
-	print('\n')
+	print('other snake location')
 	print(snakeList)
-	print('\n')
+	print('food location')
 	print(foodList)
 	print('\n')
 
     # TODO: Do things with data
     
    
+	if len(foodList) > 0:
+		moveTo=direction((youList[0].get('x'),youList[0].get('y')),(foodList[0].get('x'),foodList[0].get('y')))
+	else:
+		moveTo = 'north'
 	
-	
-	
-	print(direction)
 	return {
-		'move': 'north',
+		'move': moveTo,
 		'taunt': 'The sun darkens!'
     }
 
