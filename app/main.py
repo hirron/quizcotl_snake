@@ -35,8 +35,6 @@ def closest(items, start):
 
     return closest_item
 
-	
-
 
 
 @bottle.route('/')
@@ -72,16 +70,26 @@ def start():
 
 @bottle.post('/move')
 def move():
-    data = bottle.request.json
+	directions = ['up', 'down', 'left', 'right']	
+	data = bottle.request.json
+	foodList = data[food].get('data')
+	SnakeList = data['snakes'].get('data')
+	youList = data['you'].get('data')
+	
+	print(youList)
+	print(snakeList)
+	print(foodListList)
 
     # TODO: Do things with data
     
-    directions = ['up', 'down', 'left', 'right']
-    direction = random.choice(directions)
-    print(direction)
-    return {
-        'move': direction,
-        'taunt': 'The sun darkens!'
+   
+	
+	
+	
+	print(direction)
+	return {
+		'move': 'north',
+		'taunt': 'The sun darkens!'
     }
 
 
