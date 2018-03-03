@@ -114,29 +114,31 @@ def static(path):
 @bottle.post('/start')
 def start():
 	targetPoint = None
-    data = bottle.request.json
-    game_id = data.get('game_id')
-    board_width = data.get('width')
-    board_height = data.get('height')
+	data = bottle.request.json
+	game_id = data.get('game_id')
+	board_width = data.get('width')
+	board_height = data.get('height')
 
-    head_url = '%s://%s/static/head.png' % (
-        bottle.request.urlparts.scheme,
-        bottle.request.urlparts.netloc
+	head_url = '%s://%s/static/head.png' % (
+		bottle.request.urlparts.scheme,
+		bottle.request.urlparts.netloc
     )
 
     # TODO: Do things with data
 
-    return {
-        'color': '#00FF00',
-        'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
-        'head_url': head_url
-    }
+	return {
+		'color': '#00FF00',
+		'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
+		'head_url': head_url
+	}
 
 targetPoint = None
 @bottle.post('/move')
 def move():
+	
 	directions = ['up', 'down', 'left', 'right']	
 	data = bottle.request.json
+	grid = [data['width']][data['width']]
 	foodList = getPointList(data['food'].get('data'))
 	snakeList = data['snakes'].get('data')
 	youList = data['you'].get('body').get('data')
@@ -156,7 +158,8 @@ def move():
 	
 	print("decided to move:" + moveTo)
 
-	
+	#
+	#targetPoint = GetBestValue(Grid, head)
 	moveTo = direction(head,targetPoint)
 
 	
