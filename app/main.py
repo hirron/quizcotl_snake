@@ -168,7 +168,6 @@ def move():
 	for point in foodList:
 		grid[point[0]][point[1]] = FoodVal
 	
-	print(grid)
 	
 	snakeList = data['snakes'].get('data')
 	youList = data['you'].get('body').get('data')
@@ -178,6 +177,7 @@ def move():
 	
 
 	updateGrid(grid)
+	print(grid)
 	
 	
 	grid[youList[1].get('x')][youList[1].get('y')] = -1000000
