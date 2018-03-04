@@ -85,6 +85,7 @@ def getBestValue(grid, head):
 		vals[2] = -100000
 
 	highestIndex = maxIndex(vals)
+	print(highestIndex)
 
 	if highestIndex == 0:
 		return (head[0]-1,head[1])
