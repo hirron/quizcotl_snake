@@ -168,12 +168,13 @@ def move():
 	print("decided to move:" + moveTo)
 
 	updateGrid(Grid)
-	#grid[(youList[1].get('x')][youList[1].get('y')] = -1000000
+	
+	
+	grid[youList[1].get('x')][youList[1].get('y')] = -1000000
 	targetPoint = GetBestValue(Grid, head)
 	moveTo = direction(head,targetPoint)
 
-	
-	print()
+
 	return {
 		'move': moveTo,
 		'taunt': 'The sun darkens!'
