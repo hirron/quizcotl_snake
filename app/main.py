@@ -110,7 +110,11 @@ def updateGrid(Grid):
 	while n < NumTries:
 		for row in Grid:
 			for column in row:
+				try:
 				Grid[x][y] = Grid[x][y] + (1/2)*(Grid[x-1][y]+Grid[x+1][y]+Grid[x][y+1]+Grid[x][y-1])
+				except(IndexError as e):
+					pass
+					
 				y=y+1
 		x=x+1
 		y=0
