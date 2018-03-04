@@ -108,18 +108,15 @@ def updateGrid(Grid):
 	n = 0
 	x = 0
 	y = 0
+	k = len(Grid)
 	while n < NumTries:
-		for row in Grid:
-			for column in row:
+		for x in range (0, k):
+			for y in range (0, k):
 				try:
 					Grid[x][y] = Grid[x][y] + (1/2)*(Grid[x-1][y]+Grid[x+1][y]+Grid[x][y+1]+Grid[x][y-1])
+					
 				except IndexError:
 					pass
-					
-				y=y+1
-		x=x+1
-		y=0
-
 		n = n+1
 	return Grid
 
