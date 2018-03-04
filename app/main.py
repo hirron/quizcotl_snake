@@ -167,7 +167,7 @@ def move():
 	head = (youList[0].get('x'),youList[0].get('y'))
 	
 
-	updateGrid(Grid)
+	updateGrid(grid)
 	
 	
 	grid[youList[1].get('x')][youList[1].get('y')] = -1000000
