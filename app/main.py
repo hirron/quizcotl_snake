@@ -165,7 +165,7 @@ def move():
 	
 	
 	head = (youList[0].get('x'),youList[0].get('y'))
-	print("decided to move:" + moveTo)
+	
 
 	updateGrid(Grid)
 	
@@ -173,7 +173,7 @@ def move():
 	grid[youList[1].get('x')][youList[1].get('y')] = -1000000
 	targetPoint = GetBestValue(Grid, head)
 	moveTo = direction(head,targetPoint)
-
+	print("decided to move:" + moveTo)
 
 	return {
 		'move': moveTo,
