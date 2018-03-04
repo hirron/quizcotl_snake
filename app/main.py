@@ -165,23 +165,11 @@ def move():
 	
 	
 	head = (youList[0].get('x'),youList[0].get('y'))
-
-	if targetPoint == None:
-		targetPoint = closest(foodList, head)
-	
-	if targetPoint not in foodList:
-		targetPoint = closest(foodList, head)
-	
-   
-	if len(foodList) > 0:
-		moveTo = direction(head,targetPoint)
-
-	
 	print("decided to move:" + moveTo)
 
 	updateGrid(Grid)
 	#grid[(youList[1].get('x')][youList[1].get('y')] = -1000000
-	#targetPoint = GetBestValue(Grid, head)
+	targetPoint = GetBestValue(Grid, head)
 	moveTo = direction(head,targetPoint)
 
 	
