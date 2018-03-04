@@ -105,10 +105,16 @@ def handleSnakeBodies(grid, data):
 	
 def updateGrid(Grid):
 	n = 0
+	x = 0
+	y = 0
 	while n < NumTries:
 		for row in Grid:
 			for column in row:
-				Grid[row][column] = Grid[row][column] + (1/2)*(Grid[row-1][column]+Grid[row+1][column]+Grid[row][column+1]+Grid[row][column-1])	
+				Grid[x][y] = Grid[x][y] + (1/2)*(Grid[x-1][y]+Grid[x+1][y]+Grid[x][y+1]+Grid[x][y-1])
+				y=y+1
+		x=x+1
+		y=0
+
 		n = n+1
 	return Grid
 
