@@ -112,7 +112,7 @@ def updateGrid(Grid):
 			for column in row:
 				try:
 					Grid[x][y] = Grid[x][y] + (1/2)*(Grid[x-1][y]+Grid[x+1][y]+Grid[x][y+1]+Grid[x][y-1])
-				except(IndexError as e):
+				except IndexError:
 					pass
 					
 				y=y+1
