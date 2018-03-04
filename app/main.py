@@ -6,7 +6,11 @@ import copy
 
 #Global Variables
 NumTries = 3
+FoodVal = 10
+HeadNodeVal = 5
+SnakeNodeVal = -5
 ############
+
 
 
 def direction(from_cell, to_cell):
@@ -62,8 +66,9 @@ def maxIndex(arr):
 		x = x+1
 		
 		return retInd
-				
+
 	
+
 def getBestValue(grid, head):
 	vals =[grid[head[0]-1][head[1]], grid[head[0]+1][head[1]], grid[head[0]][head[1]-1], grid[head[0]][head[1]+1]]
 	
@@ -90,6 +95,13 @@ def getBestValue(grid, head):
 	if highestIndex == 3:
 		return(head[0],head[1]+1)
 
+def handleSnakeBodies(grid, data):
+	for snakeData in data:
+		for body in snakeData:
+			bodyNodes = getPointList(body)
+			for Node in bodyNodes:
+				grid[node[0]][node[1]] = SnakeNodeVal
+					
 	
 def updateGrid(Grid):
 	n = 0
@@ -132,16 +144,25 @@ def start():
 		'head_url': head_url
 	}
 
+	
 targetPoint = None
 @bottle.post('/move')
 def move():
 	
 	directions = ['up', 'down', 'left', 'right']	
 	data = bottle.request.json
-	grid = [data['width']][data['width']]
+	grid = [[0 for col in xrange(data['width'])] for row in xrange(data['width'])]
+	
 	foodList = getPointList(data['food'].get('data'))
+	
+	for point in foodList:
+		grid[point[0]][point[1]] = FoodVal
+	
+	print(grid)
+	
 	snakeList = data['snakes'].get('data')
 	youList = data['you'].get('body').get('data')
+	
 	
 	head = (youList[0].get('x'),youList[0].get('y'))
 
@@ -158,7 +179,8 @@ def move():
 	
 	print("decided to move:" + moveTo)
 
-	#
+	updateGrid(Grid)
+	#grid[(youList[1].get('x')][youList[1].get('y')] = -1000000
 	#targetPoint = GetBestValue(Grid, head)
 	moveTo = direction(head,targetPoint)
 
